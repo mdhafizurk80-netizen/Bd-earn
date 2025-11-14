@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -478,9 +478,9 @@
         ====== অ্যাড নেটওয়ার্কের SDK বসানোর জায়গা (প্রথম অংশ) ======
         =====================================================================
         এখানে আপনার পছন্দের অ্যাড নেটওয়ার্কের দেওয়া <script> ট্যাগটি বসাতে হবে।
-        নিচের লাইনটি একটি উদাহরণ মাত্র। আপনি এটিকে পরিবর্তন করে আপনার নিজের কোড বসাবেন।
+        নিচের লাইনটি আপনার দেওয়া নতুন কোড দিয়ে পরিবর্তন করা হয়েছে।
     -->
-    <script src='//libtl.com/sdk.js' data-zone='9702412' data-sdk='show_9702412'></script>
+    <script src='//libtl.com/sdk.js' data-zone='10185962' data-sdk='show_10185962'></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -592,11 +592,11 @@
 
                 // --- অ্যাড নেটওয়ার্কের কোড কল করার জায়গা (দ্বিতীয় অংশ) ---
                 // ======================================================================
-                // এখানে আপনার অ্যাড নেটওয়ার্কের দেওয়া ফাংশনটি কল করতে হবে।
-                // নিচের 'show_9702412()' লাইনটি একটি উদাহরণ।
+                // এখানে আপনার নতুন অ্যাড নেটওয়ার্কের ফাংশনটি কল করা হয়েছে।
                 // ======================================================================
-                if (typeof show_9702412 === 'function') {
-                    show_9702412().then(() => {
+                if (typeof show_10185962 === 'function') {
+                    show_10185962().then(() => {
+                        // বিজ্ঞাপন সফলভাবে দেখার পর এই কোডটি রান হবে
                         let earnings = parseFloat(localStorage.getItem('earnings')) + AD_REWARD;
                         let currentAdsWatched = parseInt(localStorage.getItem('adsWatched')) + 1;
                         
@@ -607,10 +607,12 @@
                     }).catch(() => {
                         tg.showAlert('বিজ্ঞাপনটি দেখাতে সমস্যা হয়েছে। আবার চেষ্টা করুন।');
                     }).finally(() => {
+                        // বিজ্ঞাপন দেখানো শেষ হলে বা কোনো সমস্যা হলেও UI আপডেট হবে
                         updateUI();
                     });
                 } else {
                     // Fallback for testing in browser without Telegram
+                    console.error("Ad function show_10185962 not found. Running in test mode.");
                     let earnings = parseFloat(localStorage.getItem('earnings')) + AD_REWARD;
                     let currentAdsWatched = parseInt(localStorage.getItem('adsWatched')) + 1;
                     localStorage.setItem('earnings', earnings.toString());
@@ -647,4 +649,4 @@
         });
     </script>
 </body>
-</html>
+                            </html>
